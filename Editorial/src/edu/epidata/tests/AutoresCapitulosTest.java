@@ -13,7 +13,7 @@ import javax.persistence.TypedQuery;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import edu.epidata.dto.Reporte1DTO;
+import edu.epidata.dto.ReporteDTO;
 import edu.epidata.jpa.CargaDatos;
 
 public class AutoresCapitulosTest {
@@ -29,18 +29,19 @@ public class AutoresCapitulosTest {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
-		TypedQuery<Reporte1DTO> tpQuery = em.createQuery(
-				"SELECT new " + "edu.epidata.dto.Reporte1DTO(p.id, count(distinct l.id))"
-						+ " FROM Capitulo c JOIN c.autores p JOIN c.libro l " + "WHERE p.id = 1" + " GROUP BY p.id",
-				Reporte1DTO.class);
+		TypedQuery<ReporteDTO> tpQuery = em
+				.createQuery(
+						"SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(distinct l.id))"
+								+ " FROM Capitulo c JOIN c.autores p JOIN c.libro l " + " GROUP BY p.id",
+						ReporteDTO.class);
 
-		List<Reporte1DTO> obtenido = tpQuery.getResultList();
+		List<ReporteDTO> obtenido = tpQuery.getResultList();
 
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
 
-		List<Reporte1DTO> esperado = cantidadEscritos();
+		List<ReporteDTO> esperado = cantidadEscritos();
 		assertEquals(esperado, obtenido);
 	}
 
@@ -67,9 +68,58 @@ public class AutoresCapitulosTest {
 		emf.close();
 	}
 
-	private List<Reporte1DTO> cantidadEscritos() {
-		List<Reporte1DTO> esperado = new ArrayList<Reporte1DTO>();
-		esperado.add(new Reporte1DTO(1, 8));
+	private List<ReporteDTO> cantidadEscritos() {
+		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
+		esperado.add(new ReporteDTO(1, 8));
+		esperado.add(new ReporteDTO(2, 5));
+		esperado.add(new ReporteDTO(3, 6));
+		esperado.add(new ReporteDTO(4, 6));
+		esperado.add(new ReporteDTO(5, 2));
+		esperado.add(new ReporteDTO(6, 2));
+		esperado.add(new ReporteDTO(7, 5));
+		esperado.add(new ReporteDTO(8, 4));
+		esperado.add(new ReporteDTO(9, 3));
+		esperado.add(new ReporteDTO(10, 5));
+		esperado.add(new ReporteDTO(11, 4));
+		esperado.add(new ReporteDTO(12, 6));
+		esperado.add(new ReporteDTO(13, 5));
+		esperado.add(new ReporteDTO(14, 5));
+		esperado.add(new ReporteDTO(15, 6));
+		esperado.add(new ReporteDTO(16, 6));
+		esperado.add(new ReporteDTO(17, 4));
+		esperado.add(new ReporteDTO(18, 3));
+		esperado.add(new ReporteDTO(19, 2));
+		esperado.add(new ReporteDTO(20, 4));
+		esperado.add(new ReporteDTO(21, 4));
+		esperado.add(new ReporteDTO(22, 5));
+		esperado.add(new ReporteDTO(23, 7));
+		esperado.add(new ReporteDTO(24, 6));
+		esperado.add(new ReporteDTO(25, 4));
+		esperado.add(new ReporteDTO(26, 4));
+		esperado.add(new ReporteDTO(27, 7));
+		esperado.add(new ReporteDTO(28, 5));
+		esperado.add(new ReporteDTO(29, 3));
+		esperado.add(new ReporteDTO(30, 8));
+		esperado.add(new ReporteDTO(31, 2));
+		esperado.add(new ReporteDTO(32, 4));
+		esperado.add(new ReporteDTO(33, 3));
+		esperado.add(new ReporteDTO(34, 4));
+		esperado.add(new ReporteDTO(35, 3));
+		esperado.add(new ReporteDTO(36, 4));
+		esperado.add(new ReporteDTO(37, 2));
+		esperado.add(new ReporteDTO(38, 4));
+		esperado.add(new ReporteDTO(39, 3));
+		esperado.add(new ReporteDTO(40, 4));
+		esperado.add(new ReporteDTO(41, 4));
+		esperado.add(new ReporteDTO(42, 7));
+		esperado.add(new ReporteDTO(43, 4));
+		esperado.add(new ReporteDTO(44, 5));
+		esperado.add(new ReporteDTO(45, 5));
+		esperado.add(new ReporteDTO(46, 5));
+		esperado.add(new ReporteDTO(47, 6));
+		esperado.add(new ReporteDTO(48, 4));
+		esperado.add(new ReporteDTO(49, 5));
+		esperado.add(new ReporteDTO(50, 7));
 		return esperado;
 	}
 }
