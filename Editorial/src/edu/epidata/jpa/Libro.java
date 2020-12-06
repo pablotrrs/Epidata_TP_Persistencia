@@ -35,15 +35,6 @@ public class Libro {
 		this.editores = editores;
 	}
 
-	public Libro(int id, String nombre, int anio, List<Persona> editores, List<Capitulo> capitulos) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.anio = anio;
-		this.editores = editores;
-		this.capitulos = capitulos;
-	}
-
 	public int getId() {
 		return id;
 	}

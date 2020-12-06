@@ -13,12 +13,12 @@ import java.util.List;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import edu.epidata.dto.ReporteDTO;
+import edu.epidata.dto.ReportePersonaCantidadDTO;
 import edu.epidata.jpa.CargaDatos;
 
 public class LibrosEditadosTest {
 	
-	private TypedQuery<ReporteDTO> tpQuery;
+	private TypedQuery<ReportePersonaCantidadDTO> tpQuery;
 
 	@BeforeClass
 	public static void setUp() throws FileNotFoundException, IOException {
@@ -31,15 +31,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 2020);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados2020();
+		List<ReportePersonaCantidadDTO> esperado = esperados2020();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -50,15 +50,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 2017);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados2017();
+		List<ReportePersonaCantidadDTO> esperado = esperados2017();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -69,15 +69,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 2016);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados2016();
+		List<ReportePersonaCantidadDTO> esperado = esperados2016();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -88,15 +88,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 2013);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados2013();
+		List<ReportePersonaCantidadDTO> esperado = esperados2013();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -107,15 +107,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 2005);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados2005();
+		List<ReportePersonaCantidadDTO> esperado = esperados2005();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -126,15 +126,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 1996);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados1996();
+		List<ReportePersonaCantidadDTO> esperado = esperados1996();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -145,15 +145,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 1994);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados1994();
+		List<ReportePersonaCantidadDTO> esperado = esperados1994();
 		
 		assertEquals(esperado, obtenido);
 	}	
@@ -164,15 +164,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 1990);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados1990();
+		List<ReportePersonaCantidadDTO> esperado = esperados1990();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -183,15 +183,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 1989);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados1989();
+		List<ReportePersonaCantidadDTO> esperado = esperados1989();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -202,15 +202,15 @@ public class LibrosEditadosTest {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReporteDTO(p.id, count(*))"
-				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReporteDTO.class);
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+				+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ", ReportePersonaCantidadDTO.class);
 		tpQuery.setParameter("anio", 1984);
 		
-		List<ReporteDTO> obtenido = tpQuery.getResultList();
+		List<ReportePersonaCantidadDTO> obtenido = tpQuery.getResultList();
 
 		commitAndClose(emf, em);
 		
-		List<ReporteDTO> esperado = esperados1984();
+		List<ReportePersonaCantidadDTO> esperado = esperados1984();
 		
 		assertEquals(esperado, obtenido);
 	}
@@ -242,80 +242,80 @@ public class LibrosEditadosTest {
 		emf.close();
 	}
 	
-	private List<ReporteDTO> esperados2020() {
-		return new ArrayList<ReporteDTO>();
+	private List<ReportePersonaCantidadDTO> esperados2020() {
+		return new ArrayList<ReportePersonaCantidadDTO>();
 	}
 	
-	private List<ReporteDTO> esperados2017() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(14, 1));
-		esperado.add(new ReporteDTO(24, 2));
-		esperado.add(new ReporteDTO(36, 1));
-		esperado.add(new ReporteDTO(38, 1));
-		esperado.add(new ReporteDTO(44, 1));
-		esperado.add(new ReporteDTO(50, 1));
+	private List<ReportePersonaCantidadDTO> esperados2017() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(14, 1));
+		esperado.add(new ReportePersonaCantidadDTO(24, 2));
+		esperado.add(new ReportePersonaCantidadDTO(36, 1));
+		esperado.add(new ReportePersonaCantidadDTO(38, 1));
+		esperado.add(new ReportePersonaCantidadDTO(44, 1));
+		esperado.add(new ReportePersonaCantidadDTO(50, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados2016() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(12, 1));
-		esperado.add(new ReporteDTO(32, 1));
-		esperado.add(new ReporteDTO(41, 1));
-		esperado.add(new ReporteDTO(44, 1));
+	private List<ReportePersonaCantidadDTO> esperados2016() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(12, 1));
+		esperado.add(new ReportePersonaCantidadDTO(32, 1));
+		esperado.add(new ReportePersonaCantidadDTO(41, 1));
+		esperado.add(new ReportePersonaCantidadDTO(44, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados2013() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(16, 1));
-		esperado.add(new ReporteDTO(19, 1));
+	private List<ReportePersonaCantidadDTO> esperados2013() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(16, 1));
+		esperado.add(new ReportePersonaCantidadDTO(19, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados2005() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(2, 1));
-		esperado.add(new ReporteDTO(31, 1));
-		esperado.add(new ReporteDTO(41, 1));
-		esperado.add(new ReporteDTO(47, 1));		
+	private List<ReportePersonaCantidadDTO> esperados2005() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(2, 1));
+		esperado.add(new ReportePersonaCantidadDTO(31, 1));
+		esperado.add(new ReportePersonaCantidadDTO(41, 1));
+		esperado.add(new ReportePersonaCantidadDTO(47, 1));		
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados1996() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(10, 1));
-		esperado.add(new ReporteDTO(20, 1));
-		esperado.add(new ReporteDTO(47, 1));
+	private List<ReportePersonaCantidadDTO> esperados1996() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(10, 1));
+		esperado.add(new ReportePersonaCantidadDTO(20, 1));
+		esperado.add(new ReportePersonaCantidadDTO(47, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados1994() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(8, 1));
-		esperado.add(new ReporteDTO(48, 1));
+	private List<ReportePersonaCantidadDTO> esperados1994() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(8, 1));
+		esperado.add(new ReportePersonaCantidadDTO(48, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados1990() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(39, 1));
+	private List<ReportePersonaCantidadDTO> esperados1990() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(39, 1));
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados1989() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(28, 1));
-		esperado.add(new ReporteDTO(35, 1));		
-		esperado.add(new ReporteDTO(41, 1));		
+	private List<ReportePersonaCantidadDTO> esperados1989() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(28, 1));
+		esperado.add(new ReportePersonaCantidadDTO(35, 1));		
+		esperado.add(new ReportePersonaCantidadDTO(41, 1));		
 		return esperado;
 	}
 	
-	private List<ReporteDTO> esperados1984() {
-		List<ReporteDTO> esperado = new ArrayList<ReporteDTO>();
-		esperado.add(new ReporteDTO(4, 1));
-		esperado.add(new ReporteDTO(20, 1));
-		esperado.add(new ReporteDTO(34, 2));		
+	private List<ReportePersonaCantidadDTO> esperados1984() {
+		List<ReportePersonaCantidadDTO> esperado = new ArrayList<ReportePersonaCantidadDTO>();
+		esperado.add(new ReportePersonaCantidadDTO(4, 1));
+		esperado.add(new ReportePersonaCantidadDTO(20, 1));
+		esperado.add(new ReportePersonaCantidadDTO(34, 2));		
 		return esperado;
 	}
 }

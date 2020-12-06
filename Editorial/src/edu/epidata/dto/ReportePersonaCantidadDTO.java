@@ -1,10 +1,10 @@
 package edu.epidata.dto;
 
-public class ReporteDTO {
+public class ReportePersonaCantidadDTO {
 	private int personaId;
 	private long cant;
 
-	public ReporteDTO(int personaId, long cant) {
+	public ReportePersonaCantidadDTO(int personaId, long cant) {
 		super();
 		this.personaId = personaId;
 		this.cant = cant;
@@ -45,9 +45,9 @@ public class ReporteDTO {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!(obj instanceof ReporteDTO))
+		if (!(obj instanceof ReportePersonaCantidadDTO))
 			return false;
-		ReporteDTO other = (ReporteDTO) obj;
+		ReportePersonaCantidadDTO other = (ReportePersonaCantidadDTO) obj;
 		if (cant != other.cant)
 			return false;
 		if (personaId != other.personaId)
