@@ -66,7 +66,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados2016() {
+	public void paginasRevisadas2016() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -86,7 +86,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados2013() {
+	public void paginasRevisadas2013() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -106,7 +106,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados2005() {
+	public void paginasRevisadas2005() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -126,7 +126,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados1996() {
+	public void paginasRevisadas1996() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -146,7 +146,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados1994() {
+	public void paginasRevisadas1994() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -166,7 +166,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados1990() {
+	public void paginasRevisadas1990() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -186,7 +186,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados1989() {
+	public void paginasRevisadas1989() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
@@ -206,7 +206,7 @@ public class PaginasRevisadasTest {
 	}
 
 	@Test
-	public void librosEditados1984() {
+	public void paginasRevisadas1984() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Editorial");
 		EntityManager em = emf.createEntityManager();
 
