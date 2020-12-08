@@ -37,31 +37,33 @@ public class Main {
 						+ " FROM Libro l JOIN l.editores p" + " WHERE l.anio = :anio" + " GROUP BY p.id ",
 				ReportePersonaCantidadDTO.class);
 
-		System.out.println("\nIngrese un año para saber la cantidad de libros que edito cada persona en ese anio: ");
+		System.out.println("\nIngrese un año para saber la cantidad de libros que edito cada persona en ese año: ");
 		anio = scanner.nextInt();
 		tpQuery.setParameter("anio", anio);
 
 		List<ReportePersonaCantidadDTO> res = tpQuery.getResultList();
 
-		System.out.println("\nCantidad de libros que edito cada persona en el anio " + anio + ":\n");
+		System.out.println("\nCantidad de libros que edito cada persona en el año " + anio + ":\n");
 		res.forEach(r -> System.out.println(r));
 		em.getTransaction().commit();
 		
+
 		em.getTransaction().begin();
-		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(*))"
+		tpQuery = em.createQuery("SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, sum(c.paginas))"
 				+ " FROM Capitulo c JOIN c.revisor p JOIN c.libro l" + " WHERE l.anio = :anio" + " GROUP BY p.id ",
 				ReportePersonaCantidadDTO.class);
 
-		System.out.println("\nIngrese un año para saber la cantidad de paginas que reviso cada persona en ese anio: ");
+		System.out.println("\nIngrese un año para saber la cantidad de paginas que reviso cada persona en ese año: ");
 		anio = scanner.nextInt();
 		tpQuery.setParameter("anio", anio);
 
 		res = tpQuery.getResultList();
 
-		System.out.println("\nCantidad de paginas que reviso cada persona en el anio " + anio + ":\n");
+		System.out.println("\nCantidad de paginas que reviso cada persona en el año " + anio + ":\n");
 		res.forEach(r -> System.out.println(r));
 		em.getTransaction().commit();
-
+		scanner.close();
+		
 		em.getTransaction().begin();
 		tpQuery = em.createQuery(
 				"SELECT new " + "edu.epidata.dto.ReportePersonaCantidadDTO(p.id, count(distinct l.id))"
